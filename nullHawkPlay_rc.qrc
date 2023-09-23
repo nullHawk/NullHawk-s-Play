@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="widget">
+    <file>resources/jbalbum.webp</file>
+  </qresource>
+</RCC>

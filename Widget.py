@@ -9,6 +9,7 @@ def main():
     # Create a QWidget instance (a borderless widget)
     widget = QWidget()
     widget.setWindowFlags(Qt.FramelessWindowHint)
+    widget.setAttribute(Qt.WA_TranslucentBackground)
     widget.setWindowTitle("Borderless PyQt5 Widget")  # Set window title
     widget.setGeometry(100, 100, 400, 300)  # Set widget size and position
 
