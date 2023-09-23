@@ -101,6 +101,7 @@ class UI_widget(object):
         self.close_button.setIcon(icon)
         self.close_button.setFlat(True)
         self.close_button.setObjectName("close_button")
+        self.close_button.clicked.connect(widget.close)
         
         self.music_name = QtWidgets.QLabel(self.frame)
         self.music_name.setGeometry(QtCore.QRect(90, 50, 171, 21))
@@ -184,24 +185,25 @@ class UI_widget(object):
         self.horizontalLayout.addWidget(self.album_name)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.close_button_2 = QtWidgets.QPushButton(self.frame)
-        self.close_button_2.setGeometry(QtCore.QRect(240, 0, 30, 30))
+        self.maximize = QtWidgets.QPushButton(self.frame)
+        self.maximize.setGeometry(QtCore.QRect(240, 0, 30, 30))
         
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
         font.setWeight(75)
         
-        self.close_button_2.setFont(font)
-        self.close_button_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.close_button_2.setStyleSheet("background-color: rgb(90, 82, 82);")
-        self.close_button_2.setText("")
+        self.maximize.setFont(font)
+        self.maximize.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.maximize.setStyleSheet("background-color: rgb(90, 82, 82);")
+        self.maximize.setText("")
         
         icon = QtGui.QIcon.fromTheme("window-maximize")
         
-        self.close_button_2.setIcon(icon)
-        self.close_button_2.setFlat(True)
-        self.close_button_2.setObjectName("close_button_2")
+        self.maximize.setIcon(icon)
+        self.maximize.setFlat(True)
+        self.maximize.setObjectName("close_button_2")
+        self.maximize.clicked.connect(self.open_max)
         
         self.horizontalSlider = QtWidgets.QSlider(self.frame)
         self.horizontalSlider.setGeometry(QtCore.QRect(90, 80, 161, 20))
@@ -236,5 +238,12 @@ class UI_widget(object):
         self.music_name.setText(_translate("widget", "Music Name"))
         self.author_name.setText(_translate("widget", "Author"))
         self.album_name.setText(_translate("widget", "Album"))
+
+    def open_max(self):
+        #TODO : open the main Music Player
+        print("open")
+
+    def close_application(self):
+        widget.close()
 
 import nullHawkPlay_rc
