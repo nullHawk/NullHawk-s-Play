@@ -11,7 +11,7 @@ def main():
     window.setGeometry(100, 100, 400, 300)  # Set window size and position
 
     # Create a QLabel widget and add it to the main window
-    label = QLabel("Hello, PyQt5!", window)
+    label = QLabel("This is NullHawk's Play!", window)
     label.setGeometry(100, 100, 200, 50)  # Set label position and size
 
     # Show the main window
