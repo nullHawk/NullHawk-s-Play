@@ -1,2 +1,2 @@
 # NullHawk's Play
- Music Player made in pyqt5 which feteches music from youtube
+ Music Player made in pyqt5 which fetches music from youtube
