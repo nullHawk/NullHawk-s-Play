@@ -2,6 +2,12 @@ import MusicPlayer
 import widget
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+import mutagen
+from mutagen.id3 import ID3, APIC
+
+
+
+
 
 def run_widget():
     # Create a QApplication instance
@@ -15,13 +21,24 @@ def run_widget():
     # Show the main window
     window.show()
 
-    # Start the main event loop
+    
+    music_name = "Yummy"
+    author = "Justin Beiber"
+    album = "Changes"
+
+    photo = "resources/music.png"
+
+    
+    ui.update_music_data(music_name, author, album, photo)
+     
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
     #MusicPlayer.main()
     #widget.widget.main()
+
     run_widget()
+    
 
 
 
