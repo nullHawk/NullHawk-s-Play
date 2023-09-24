@@ -8,8 +8,7 @@ from mutagen.id3 import ID3, APIC
 
 
 
-
-def run_widget():
+def load_widget():
     # Create a QApplication instance
     app = QApplication(sys.argv)
 
@@ -17,19 +16,10 @@ def run_widget():
     window = QMainWindow()
     ui = widget.UI_widget()
     ui.setupUi(window)
-
-    # Show the main window
     window.show()
 
-    
-    music_name = "Yummy"
-    author = "Justin Beiber"
-    album = "Changes"
+    # Show the main window
 
-    photo = "resources/music.png"
-
-    #updates the contents of widget
-    #ui.update_music_data(music_name, author, album, photo)
      
     sys.exit(app.exec_())
 
@@ -51,8 +41,8 @@ if __name__ == "__main__":
     #MusicPlayer.main()
     #widget.widget.main()
 
-    #run_widget()
-    run_player()
+    load_widget()
+    #run_player()
     
 
 

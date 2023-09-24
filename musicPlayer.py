@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QTabWidget, QListWidget
 from PyQt5.QtGui import QPixmap
 import ytBack
 import requests
+import main
+import sys
 
 
 
@@ -71,6 +73,7 @@ class Ui_mainWindow(object):
         self.searchBtn.setObjectName("searchBtn")
         self.horizontalLayout.addWidget(self.searchBtn)
         self.searchBtn.clicked.connect(self.search)
+        
 
         self.musicTab = QtWidgets.QTabWidget(self.centralwidget)
         self.musicTab.setGeometry(QtCore.QRect(0, 40, 400, 560))
@@ -184,6 +187,7 @@ class Ui_mainWindow(object):
         self.musicTab.setTabText(self.musicTab.indexOf(self.music), _translate("mainWindow", "Music"))
 
     def search(self):
+        self.musicTab.setCurrentIndex(0)
         self.search_List.clear()
         search_text = self.searchBox.toPlainText()
         search_result = ytBack.search(search_text)
@@ -217,5 +221,19 @@ class Ui_mainWindow(object):
                 self.album_photo.setPixmap(self.defaultThumNail)
 
             self.musicTab.setCurrentIndex(1)
+    def openWidget(self):
+        app = QApplication(sys.argv)
+
+        # Create the main window
+        window = QMainWindow()
+        ui = widget.UI_widget()
+        widget.setupUi(window)
+
+        # Show the main window
+        sys.exit(app.exec_())
+    def closeEvent(self, event):
+        # Override the closeEvent method to intercept the close button click
+        self.openWidget()
+        event.accept()  # Accept the close event
 
 import nullHawkPlay_rc
