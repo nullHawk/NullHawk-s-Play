@@ -28,8 +28,8 @@ def run_widget():
 
     photo = "resources/music.png"
 
-    
-    ui.update_music_data(music_name, author, album, photo)
+    #updates the contents of widget
+    #ui.update_music_data(music_name, author, album, photo)
      
     sys.exit(app.exec_())
 
