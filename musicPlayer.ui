@@ -18,6 +18,9 @@
     <normaloff>:/widget/resources/play_logo.png</normaloff>:/widget/resources/play_logo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(38, 38, 38);</string>
+   </property>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>

@@ -22,6 +22,8 @@ class UI_widget(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(widget.sizePolicy().hasHeightForWidth())
 
+        
+
         widget.setSizePolicy(sizePolicy)
         widget.setMinimumSize(QtCore.QSize(400, 250))
         widget.setMaximumSize(QtCore.QSize(400, 250))
@@ -257,5 +259,6 @@ class UI_widget(object):
         self.author_name.setText(author)
         self.album_name.setText(album)
         self.album_photo.setPixmap(QtGui.QPixmap(photo_add))
+    
 
 import nullHawkPlay_rc

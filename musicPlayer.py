@@ -19,6 +19,7 @@ class Ui_mainWindow(object):
         icon.addPixmap(QtGui.QPixmap(":/widget/resources/play_logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         mainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(mainWindow)
+        self.centralwidget.setStyleSheet("background-color: rgb(38, 38, 38);")
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 401, 41))
