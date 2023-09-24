@@ -27,10 +27,14 @@ def get_song_detail(videoID):
     cleanDetail['artist'] = music_detail['author']
     return cleanDetail
 
+# TODO : develop get_album function
+# def get_album(videoID):
+#     detail = ytmusic.get_album(videoID)
+#     return detail
 
     
 
 #search
-print(get_song_detail(search("Yummy")[0][1]))
+#print(get_song_detail(search("Yummy")[0][1]))
 
 
