@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="widget">
     <file>resources/jbalbum.webp</file>
+    <file>resources/play_logo.png</file>
   </qresource>
 </RCC>

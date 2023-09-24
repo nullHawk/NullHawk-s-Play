@@ -1,4 +1,4 @@
-import MusicPlayer
+import musicPlayer
 import widget
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
@@ -33,11 +33,26 @@ def run_widget():
      
     sys.exit(app.exec_())
 
+def run_player():
+    # Create a QApplication instance
+    app = QApplication(sys.argv)
+
+    # Create the main window
+    window = QMainWindow()
+    ui = musicPlayer.Ui_mainWindow()
+    ui.setupUi(window)
+
+    # Show the main window
+    window.show()
+    sys.exit(app.exec_())
+
+
 if __name__ == "__main__":
     #MusicPlayer.main()
     #widget.widget.main()
 
-    run_widget()
+    #run_widget()
+    run_player()
     
 
 
