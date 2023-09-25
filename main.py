@@ -41,8 +41,8 @@ if __name__ == "__main__":
     #MusicPlayer.main()
     #widget.widget.main()
 
-    load_widget()
-    #run_player()
+    #load_widget()
+    run_player()
     
 
 
