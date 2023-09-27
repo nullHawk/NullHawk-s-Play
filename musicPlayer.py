@@ -1,6 +1,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QTabWidget, QListWidget
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QTabWidget, QListWidget, QGraphicsDropShadowEffect
+from PyQt5.QtGui import QColor
 from PyQt5.QtGui import QPixmap
 import ytBack
 import requests
@@ -107,8 +109,17 @@ class Ui_mainWindow(object):
         self.album_photo.setFont(font)
         self.album_photo.setText("")
         self.album_photo.setPixmap(QtGui.QPixmap(":/widget/resources/jbalbum.webp"))
-        self.album_photo.setScaledContents(True)
+        
+        # self.album_photo.setScaledContents(True)
         self.album_photo.setObjectName("album_photo")
+        shadow = QGraphicsDropShadowEffect()
+        # setting blur radius
+        shadow.setBlurRadius(15)
+        color = QColor(0, 0, 0) 
+        color.setAlpha(100)
+        shadow.setColor(color)
+        # adding shadow to the label
+        self.album_photo.setGraphicsEffect(shadow)
 
         self.slider = QtWidgets.QSlider(self.music)
         self.slider.setGeometry(QtCore.QRect(15, 400, 360, 20))
@@ -173,6 +184,7 @@ class Ui_mainWindow(object):
         self.musicTab.addTab(self.music, "")
         mainWindow.setCentralWidget(self.centralwidget)
 
+
         self.retranslateUi(mainWindow)
         self.musicTab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
@@ -207,7 +219,7 @@ class Ui_mainWindow(object):
             global_artist_name = detail['artist']
             self.global_thumbnail = detail['img_link'][0]["url"]
 
-            self.music_name.setText(global_music_name)
+            self.music_name.setText(global_music_name if (len(global_music_name) < 20) else global_music_name[:20] + "...")
             self.artist_name.setText(global_artist_name)
 
             # Download the image using requests
@@ -216,7 +228,16 @@ class Ui_mainWindow(object):
                 # Convert the image data to QPixmap and display it
                 pixmap = QPixmap()
                 pixmap.loadFromData(response.content)
+
+                self.album_photo.setFixedHeight(250)  # Set the desired height
+    
+                # Calculate the width to maintain the image's aspect ratio
+                width = int(pixmap.width() * (self.album_photo.height() / pixmap.height()))
+
+                pixmap = pixmap.scaled(width, self.album_photo.height())
+
                 self.album_photo.setPixmap(pixmap)
+                self.album_photo.setAlignment(Qt.AlignCenter)
             else:
                 self.album_photo.setPixmap(self.defaultThumNail)
 
