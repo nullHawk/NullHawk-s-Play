@@ -64,7 +64,7 @@ class Ui_mainWindow(object):
         sizePolicy.setHeightForWidth(self.searchBtn.sizePolicy().hasHeightForWidth())
 
         self.searchBtn.setSizePolicy(sizePolicy)
-        self.searchBtn.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.searchBtn.setMaximumSize(QtCore.QSize(16777215, 35))
         self.searchBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.searchBtn.setText("")
 
